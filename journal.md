@@ -1,7 +1,5 @@
 # TODO
 
-- [ ] Copy the Features from the deleted project.
-- [ ] migrate the helpers from the deleted project
 
 
 # JOURNAL
@@ -38,8 +36,15 @@ Manjaro System. These are the steps I took:
 ### UPDATE 09:49
 
 - [x] ~~Add a better font for the project.~~
+- [x] ~~Copy the Features from the deleted project.~~
 
 Installed the _Poppins_ font from
 [FontSource](https://fontsource.org/fonts/poppins), just by following
-the instructions.
+the instructions. Moreover, I migrated the features
+
+### UPDATE 12:16
+
+- [x] ~~migrate the helpers from the deleted project~~
+
+Did exactly that. The migration is thereby finished.
 
