@@ -1,4 +1,6 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */ /* Import only what you need from Bulma */
+@import '@fontsource/poppins';
+
 @import 'bulma/sass/utilities/_all';
 @import 'bulma/sass/base/_all';
 @import 'bulma/sass/elements/_all';
@@ -7,3 +9,7 @@
 @import 'bulma/sass/grid/_all';
 @import 'bulma/sass/helpers/_all';
 @import 'bulma/sass/layout/_all';
+
+body {
+  font-family: 'Poppins', 'Noto Sans', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}

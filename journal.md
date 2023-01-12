@@ -1,7 +1,6 @@
 # TODO
 
-- [ ] Add this project to GitHub
-- [ ] Add a better font for the project
+- [ ] Copy the Features from the deleted project.
 - [ ] migrate the helpers from the deleted project
 
 
@@ -22,7 +21,11 @@ working!) way to do it goes like this:
 
 This installs all the packages required and works.
 
-__[UPDATE 09:18:]__ I could add this project seamlessly into GitHub after I
+### UPDATE 09:18
+
+- [x] ~~Add this project to GitHub~~
+
+I could add this project seamlessly into GitHub after I
 installed
 [Github CLI](https://software.manjaro.org/package/github-cli) on this
 Manjaro System. These are the steps I took:
@@ -31,4 +34,12 @@ Manjaro System. These are the steps I took:
   $ gh auth login   # login for the procedure; interactive
   $ gh repo create  # create Repo on Github  ; interactive
 ```
+
+### UPDATE 09:49
+
+- [x] ~~Add a better font for the project.~~
+
+Installed the _Poppins_ font from
+[FontSource](https://fontsource.org/fonts/poppins), just by following
+the instructions.
 
