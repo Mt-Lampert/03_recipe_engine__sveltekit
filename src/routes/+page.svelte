@@ -1,4 +1,13 @@
-<script>
+<script lang="ts">
+	import { edamanID, edamanKey } from '$lib/myConfigs';
+	import type { ReqInfo, ResData } from '$lib/myTypes';
+
+	const reqInfo: ReqInfo = {
+		appID: edamanID,
+		appKey: edamanKey,
+		ingr: 'lentils',
+		diet: 'vegetarian'
+	};
 </script>
 
 <main>

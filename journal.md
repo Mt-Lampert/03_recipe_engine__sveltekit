@@ -1,8 +1,23 @@
 # TODO
 
-
+- [ ] implement basic request with the form, redirecting the output to the console
+- [ ] wire the request to the values of the form.
+- [ ] implement a basic `Recipes` list Component
+- [ ] implement a basic `SingleView` component.
+- [ ] implement another fetch function for the Single View,
+      in order to use it in its `onmount()` hook.
 
 # JOURNAL
+
+## 2023-01-13 06:50
+
+- [x] ~~migrate and integrate the `.env` file from the old project~~
+
+I took an easier option and created `myConfigs.ts` inside my `$lib` directory.
+Then I hid it from git (`.gitignore`) to keep the data private and left a
+sample copy for any user to play with when they download and build the project
+(`myConfigs.example.ts`).
+
 
 ## 2023-01-12 08:48
 
@@ -17,7 +32,7 @@ working!) way to do it goes like this:
   $ pnpm install
 ```
 
-This installs all the packages required and works.
+This installs all the packages required and works. Lesson learned.
 
 ### UPDATE 09:18
 
@@ -48,3 +63,10 @@ the instructions. Moreover, I migrated the features
 
 Did exactly that. The migration is thereby finished.
 
+### UPDATE 19:48
+
+Just found out that in SvelteKit (which is managed by Vite), environment
+variables must begin with `VITE_*` if we want to include them in our 
+components using `$env/static/private` and Co. 
+[This documentation](https://vitejs.dev/guide/env-and-mode.html#env-files)
+explains what's going on.
