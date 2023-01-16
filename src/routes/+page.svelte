@@ -1,6 +1,7 @@
 <script lang="ts">
+	import type { ReqInfo } from '$lib/myTypes';
 	import { edamanID, edamanKey } from '$lib/myConfigs';
-	import type { ReqInfo, ResData } from '$lib/myTypes';
+	import { getRecipes } from '$lib/helpers';
 
 	const reqInfo: ReqInfo = {
 		appID: edamanID,
@@ -8,6 +9,15 @@
 		ingr: 'lentils',
 		diet: 'vegetarian'
 	};
+
+	function submitHandler() {
+		getRecipes(reqInfo)
+			.then((response) => {
+				console.dir(response);
+				// console.log('I got the data!');
+			})
+			.catch((error) => console.error(error));
+	}
 </script>
 
 <main>
@@ -26,10 +36,13 @@
 				</select>
 			</div>
 		</div>
-		<div class="form-submit"><button class="button is-warning">Submit</button></div>
+		<div class="form-submit">
+			<button class="button is-warning" on:click|preventDefault={submitHandler}>Submit</button>
+		</div>
 	</div>
 </main>
 
+<!-- vim: foldmethod=indent -->
 <style lang="scss">
 	main {
 		margin: 2rem auto 0rem auto;
@@ -37,8 +50,10 @@
 	}
 
 	.form-container {
-		background-color: hsl(140, 60%, 50%);
-		width: 600px;
+		background-color: hsl(201, 58%, 61%);
+		border-radius: 15px;
+		margin: 0 auto;
 		padding: 2rem 3rem;
+		width: 600px;
 	}
 </style>

@@ -1,4 +1,4 @@
-import type { ReqInfo, ResData } from "./myTypes";
+import type { GridItem, ReqInfo, ResData } from "./myTypes";
 
 
 function buildURI(args: ReqInfo) {
@@ -10,6 +10,27 @@ function buildURI(args: ReqInfo) {
     `q=${args.ingr}`
   return encodeURI(uri)
 }
+
+/**
+  * transforms raw API data into data for the recipe list
+  * 
+  * @param rawData the raw data from the API
+  * @return data for the recipe list
+  */
+function getGridData(rawData: any): GridItem[] {
+  const outData: GridItem[] = [];
+  // console.dir(rawData)
+  for (const item of rawData) {
+    outData.push({
+      id: item.recipe.uri.match(/_\w+/)[0],
+      title: item.recipe.label,
+      url: item._links.self.href,
+      img: item.recipe.images["THUMBNAIL"].url,
+    })
+  }
+  return outData;
+}
+
 
 /**
   * gets the recipes from the edaman server
@@ -28,11 +49,11 @@ export function getRecipes(args: ReqInfo): Promise<ResData> {
       throw new Error(errMsg);
     })
     .then((data) => {
-      if (data.items.length === 0) throw new Error(errMsg);
-
+      if (data.count === 0) throw new Error(errMsg);
+      const gridData = getGridData(data.hits);
       return {
         state: "success",
-        payload: data,
+        payload: getGridData(data.hits),
         error: "",
       };
     })

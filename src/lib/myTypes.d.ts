@@ -5,6 +5,13 @@ export type ReqInfo = {
   diet: string,
 }
 
+export type GridItem = {
+  id: string,
+  title: string,
+  url: string,
+  img: string,
+}
+
 export type ResData = {
   state: string,
   payload: any,
