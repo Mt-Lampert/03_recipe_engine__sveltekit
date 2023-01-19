@@ -10,5 +10,9 @@
 <style lang="scss">
 	.recipe-card {
 		padding-top: 2rem;
+
+		p {
+			text-align: center;
+		}
 	}
 </style>

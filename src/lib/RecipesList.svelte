@@ -14,6 +14,10 @@
 <style lang="scss">
 	.recipe-container {
 		/* needs to be a grid on widescreen: 4 x 5 */
+		display: grid;
+		gap: 0.5rem;
+		grid-template-columns: repeat(4, 1fr);
+		grid-auto-flow: row;
 		margin-top: 3rem;
 	}
 </style>
