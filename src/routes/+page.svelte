@@ -10,7 +10,13 @@
 		diet: 'vegetarian'
 	};
 
+	let myDiet = 'vegetarian';
+	let myIngredient = 'lentils';
+
 	function submitHandler() {
+		reqInfo.diet = encodeURI(myDiet);
+		reqInfo.ingr = encodeURI(myIngredient);
+
 		getRecipes(reqInfo)
 			.then((response) => {
 				console.dir(response);
@@ -25,14 +31,14 @@
 		<h1 class="title">Welcome</h1>
 		<div class="form-top">
 			<div>
-				<input class="input" type="text" placeholder="Your ingredient" />
+				<input class="input" type="text" placeholder="Your ingredient" bind:value={myIngredient} />
 			</div>
 			<div>
-				<select class="select" id="diet" name="diet">
-					<option>vegetarian</option>
+				<select class="select" id="diet" name="diet" bind:value={myDiet}>
+					<option selected>vegetarian</option>
 					<option>vegan</option>
-					<option>low carb</option>
-					<option>high protein</option>
+					<option>low-carb</option>
+					<option>high-protein</option>
 				</select>
 			</div>
 		</div>
@@ -40,6 +46,8 @@
 			<button class="button is-warning" on:click|preventDefault={submitHandler}>Submit</button>
 		</div>
 	</div>
+	<!--  This is where the recipes reside -->
+	<div class="recipe-container" />
 </main>
 
 <!-- vim: foldmethod=indent -->

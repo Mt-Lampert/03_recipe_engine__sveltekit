@@ -2,11 +2,27 @@ import type { GridItem, ReqInfo, ResData } from "./myTypes";
 
 
 function buildURI(args: ReqInfo) {
+  const diets = [
+    "balanced",
+    "high-fiber",
+    "high-protein",
+    "low-carb",
+    "low-fat",
+    "low-sodium",
+  ];
+
+  let tag = 'health';
+
+  // for the query, some options in the diet dropdown require a
+  // 'health' tag, some require a 'diet' tag
+  if (diets.findIndex(myDiet => myDiet === args.diet) !== -1) { tag = "diet" }
+
+
   const uri = 'https://api.edamam.com/api/recipes/v2' +
     '?type=public' +
     `&app_id=${args.appID}&` +
     `&app_key=${args.appKey}&` +
-    `health=${args.diet}&` +
+    `${tag}=${args.diet}&` +
     `q=${args.ingr}`
   return encodeURI(uri)
 }
@@ -50,7 +66,6 @@ export function getRecipes(args: ReqInfo): Promise<ResData> {
     })
     .then((data) => {
       if (data.count === 0) throw new Error(errMsg);
-      const gridData = getGridData(data.hits);
       return {
         state: "success",
         payload: getGridData(data.hits),

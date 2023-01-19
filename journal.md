@@ -1,13 +1,28 @@
 # TODO
 
-- [ ] implement basic request with the form, redirecting the output to the console
-- [ ] wire the request to the values of the form.
 - [ ] implement a basic `Recipes` list Component
 - [ ] implement a basic `SingleView` component.
 - [ ] implement another fetch function for the Single View,
       in order to use it in its `onmount()` hook.
 
 # JOURNAL
+
+## 2023-01-19 07:24
+
+- [x] ~~wire the request to the values of the form.~~
+
+Done. When I implemented it, I had to update `buildURI()` because Edaman makes
+a distinction between "health" and "diet" when it comes to assigning tasks to
+an ingredient you are looking for. Annoying but there we are. 
+
+## 2023-01-16 20:59
+
+- [x] ~~implement basic request with the form, redirecting the output to the console~~
+
+I made a little transformation to the raw data from the API; I extracted the 
+data I need for the recipe list on the landing page. The raw data was so vast
+and deep that I just had to simplify it.
+
 
 ## 2023-01-13 06:50
 
