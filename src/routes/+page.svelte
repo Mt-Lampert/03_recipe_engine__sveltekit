@@ -40,7 +40,7 @@
 			<div>
 				<input class="input" type="text" placeholder="Your ingredient" bind:value={myIngredient} />
 			</div>
-			<div>
+			<div class="diet is-flex">
 				<select class="select" id="diet" name="diet" bind:value={myDiet}>
 					<option selected>vegetarian</option>
 					<option>vegan</option>
@@ -63,15 +63,36 @@
 <!-- vim: foldmethod=indent -->
 <style lang="scss">
 	main {
-		margin: 2rem auto 0rem auto;
-		width: 800px;
+		margin: 0rem auto 0rem auto;
+		max-width: 800px;
+
+		@media screen and (min-width: 800px) {
+			margin-top: 1rem;
+		}
 	}
 
 	.form-container {
 		background-color: hsl(201, 58%, 61%);
-		border-radius: 15px;
+		/* border-radius: 15px; */
 		margin: 0 auto;
 		padding: 2rem 3rem;
-		width: 600px;
+		max-width: 600px;
+		text-align: center;
+
+		.diet {
+			margin-top: 1rem;
+			& > select {
+				width: 100%;
+			}
+		}
+
+		.form-submit {
+			margin-top: 2rem;
+			text-align: center;
+		}
+
+		@media screen and (min-width: 800px) {
+			border-radius: 10px;
+		}
 	}
 </style>

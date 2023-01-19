@@ -15,9 +15,17 @@
 	.recipe-container {
 		/* needs to be a grid on widescreen: 4 x 5 */
 		display: grid;
-		gap: 0.5rem;
-		grid-template-columns: repeat(4, 1fr);
 		grid-auto-flow: row;
+		justify-items: center;
 		margin-top: 3rem;
+
+		gap: 0.5rem;
+		@media screen and (min-width: 600px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media screen and (min-width: 960px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 </style>

@@ -12,6 +12,7 @@
 		padding-top: 2rem;
 
 		p {
+			max-width: calc(15 * 1ch);
 			text-align: center;
 		}
 	}
