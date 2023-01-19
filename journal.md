@@ -1,11 +1,16 @@
 # TODO
-
-- [ ] implement a basic `Recipes` list Component
+- [ ] provide a link to a `SingleView` component for each recipe
 - [ ] implement a basic `SingleView` component.
 - [ ] implement another fetch function for the Single View,
       in order to use it in its `onmount()` hook.
 
 # JOURNAL
+
+## 2023-01-19 07:58
+
+- [x] ~~implement a basic `Recipes` list Component~~
+
+I did it! And it worked from the start!
 
 ## 2023-01-19 07:24
 

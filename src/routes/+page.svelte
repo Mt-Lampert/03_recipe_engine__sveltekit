@@ -1,7 +1,10 @@
 <script lang="ts">
-	import type { ReqInfo } from '$lib/myTypes';
+	import type { ReqInfo, ResData } from '$lib/myTypes';
+
 	import { edamanID, edamanKey } from '$lib/myConfigs';
 	import { getRecipes } from '$lib/helpers';
+
+	import RecipesList from '$lib/RecipesList.svelte';
 
 	const reqInfo: ReqInfo = {
 		appID: edamanID,
@@ -12,6 +15,11 @@
 
 	let myDiet = 'vegetarian';
 	let myIngredient = 'lentils';
+	let myState: ResData = {
+		state: 'idle',
+		payload: [],
+		error: ''
+	};
 
 	function submitHandler() {
 		reqInfo.diet = encodeURI(myDiet);
@@ -19,8 +27,7 @@
 
 		getRecipes(reqInfo)
 			.then((response) => {
-				console.dir(response);
-				// console.log('I got the data!');
+				myState = response;
 			})
 			.catch((error) => console.error(error));
 	}
@@ -47,7 +54,10 @@
 		</div>
 	</div>
 	<!--  This is where the recipes reside -->
-	<div class="recipe-container" />
+
+	{#if myState.state === 'success'}
+		<RecipesList recipes={myState.payload} />
+	{/if}
 </main>
 
 <!-- vim: foldmethod=indent -->
