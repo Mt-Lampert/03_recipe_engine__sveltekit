@@ -3,7 +3,10 @@
 </script>
 
 <div class="recipe-card">
-	<p><img src={data.img} alt="recipe snapshot" /></p>
+	<p>
+		<a href={'/' + data.id}> <img src={data.img} alt="recipe snapshot" /></a>
+	</p>
+
 	<p>{data.title}</p>
 </div>
 

@@ -1,10 +1,31 @@
 # TODO
-- [ ] provide a link to a `SingleView` component for each recipe
-- [ ] implement a basic `SingleView` component.
 - [ ] implement another fetch function for the Single View,
       in order to use it in its `onmount()` hook.
 
 # JOURNAL
+
+## 2023-01-23 07:10
+
+- [x] ~~provide a link to a `SingleView` component for each recipe~~
+- [x] ~~implement a basic `SingleView` component.~~
+
+Found out how to do slugs in SvelteKit the hard way. It's actually not hard,
+only if you have to figure it out without a mentor. So to mentor myself in 
+the future, here are the steps:
+
+1. add a new directory `/src/[id]/`, where 'id' is the slug you need.
+0. In `/app.d.ts`, adjust the `PageData` typescript interface to your needs.
+   You can then import the types in your `.svelte` and `.ts` files like this:
+
+```typescript
+  import type { PageData } from './$types'
+  export let data: PageData
+```
+
+3. In `/src/[id]/page.ts`, adjust the 'load()' function to your needs. It provides 
+   the `data` you can use in your `.svelte` and `.ts` modules or an `error` if
+   anything went wrong.
+
 
 ## 2023-01-19 07:58
 
@@ -46,7 +67,7 @@ TypeScript was not integrated in the version I took from
 [SvelteAdd](https://github.com/svelte-add/). So the better (and
 working!) way to do it goes like this:
 
-```sh
+```bash
   # after creating the SvelteKit project
   $ pnpx svelte-add@latest bulma scss
   $ pnpm install
@@ -63,7 +84,7 @@ installed
 [Github CLI](https://software.manjaro.org/package/github-cli) on this
 Manjaro System. These are the steps I took:
 
-```sh
+```bash
   $ gh auth login   # login for the procedure; interactive
   $ gh repo create  # create Repo on Github  ; interactive
 ```
