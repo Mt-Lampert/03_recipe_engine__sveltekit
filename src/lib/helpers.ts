@@ -78,3 +78,27 @@ export function getRecipes(args: ReqInfo): Promise<ResData> {
       error: error,
     }));
 }
+
+export function getSingleRecipe(url: string): Promise<ResData> {
+  const errMsg = `404 -- No data available`;
+
+  return fetch(url)
+    .then((res) => {
+      if (res.ok) return res.json();
+      // else:
+      throw new Error(errMsg);
+    })
+    .then((data) => {
+      console.dir(data)
+      return {
+        state: "success",
+        payload: data,
+        error: "",
+      };
+    })
+    .catch((error) => ({
+      state: "fail",
+      payload: null,
+      error: error,
+    }));
+}

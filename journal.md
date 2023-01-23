@@ -1,8 +1,15 @@
 # TODO
-- [ ] implement another fetch function for the Single View,
-      in order to use it in its `onmount()` hook.
 
 # JOURNAL
+
+## 2023-01-23 20:41
+
+- [x] ~implement another fetch function for the Single View, in order to use it in its `onmount()` hook.~
+
+... And it all fell into place! All the preparation and hard work paid off
+and I could implement the Single Page using the right helper and the right
+types, and even Svelte's `{#async}` feature in the markup. What is more, 
+with `{#async}` there was no more need for `onMount()`.
 
 ## 2023-01-23 15:12
 

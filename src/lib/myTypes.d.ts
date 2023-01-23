@@ -17,3 +17,12 @@ export type ResData = {
   payload: any,
   error: string,
 }
+
+export type RecipeInfo = {
+  currentRecipes: GridItem[],
+}
+
+export type SpageData = {
+  title: string,
+  img: string,
+}
