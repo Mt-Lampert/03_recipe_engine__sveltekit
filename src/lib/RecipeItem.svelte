@@ -1,5 +1,6 @@
 <script lang="ts">
-	export let data: import('./myTypes').GridItem;
+	import type { GridItem } from '$lib/myTypes';
+	export let data: GridItem;
 </script>
 
 <div class="recipe-card">

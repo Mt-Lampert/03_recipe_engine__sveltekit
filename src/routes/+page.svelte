@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ReqInfo, ResData } from '$lib/myTypes';
 
+	import { recipeInfo } from '$lib/recipeStore';
 	import { edamanID, edamanKey } from '$lib/myConfigs';
 	import { getRecipes } from '$lib/helpers';
 
@@ -27,6 +28,10 @@
 
 		getRecipes(reqInfo)
 			.then((response) => {
+				recipeInfo.update((state) => {
+					state.currentRecipes = response.payload;
+					return state;
+				});
 				myState = response;
 			})
 			.catch((error) => console.error(error));

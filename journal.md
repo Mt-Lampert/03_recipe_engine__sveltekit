@@ -4,6 +4,16 @@
 
 # JOURNAL
 
+## 2023-01-23 15:12
+
+Turned out that i NEEDED a store to pass the URL for the single page to the
+Single Page component. Was a little harder than I thought because I also had to
+adjust the TypeScript types and generate new ones. On the other hand, it was
+absolutely worth it and a good repetition.
+
+WHY was it necessary? Because the Edaman API returned a complete URL for the
+single view, including the app ID and the app key. That's why.
+
 ## 2023-01-23 07:10
 
 - [x] ~~provide a link to a `SingleView` component for each recipe~~
@@ -14,7 +24,7 @@ only if you have to figure it out without a mentor. So to mentor myself in
 the future, here are the steps:
 
 1. add a new directory `/src/[id]/`, where 'id' is the slug you need.
-0. In `/app.d.ts`, adjust the `PageData` typescript interface to your needs.
+2. In `/app.d.ts`, adjust the `PageData` typescript interface to your needs.
    You can then import the types in your `.svelte` and `.ts` files like this:
 
 ```typescript
