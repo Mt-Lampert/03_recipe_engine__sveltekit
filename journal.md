@@ -1,10 +1,37 @@
+---
+title: Project Journal
+author: R. Matthias Lampert (perrhh.comworld@gmail.com)
+date: 2023-01-12 
+---
+
+
 # TODO
+
+- [ ] Implement a navigation for the Single Page in order to 
+      navigate between the recipes.
+
 
 # JOURNAL
 
+## 2023-01-24 16:50
+
+- [x] ~~Implement the wireframes using Grid and Bulma~~
+
+I did it! Responsive design took some heavy steps but they were all worth
+the hard work. It looks simplistic but quite cool now.
+
+
+## 2023-01-24 11:20
+
+- [x] ~~Do wireframes for the Single View in Inkscape: Mobile, Tablet, Desktop~~
+
+Went fine. All the outlining took only 10 minutes.
+
+
 ## 2023-01-23 20:41
 
-- [x] ~implement another fetch function for the Single View, in order to use it in its `onmount()` hook.~
+- [x] ~~implement another fetch function for the Single View, in order to use it
+      in its `onmount()` hook.~~
 
 ... And it all fell into place! All the preparation and hard work paid off
 and I could implement the Single Page using the right helper and the right
