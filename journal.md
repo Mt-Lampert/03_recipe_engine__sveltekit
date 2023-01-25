@@ -11,6 +11,13 @@ date: 2023-01-12
 
 # JOURNAL
 
+## 2023-01-25 19:50
+
+I think I can say that I have finished this project successfully. Try and Error
+is really the best teacher there can be, and I am very happy that I could
+overcome all the obstacles. It was a nice experience.
+
+
 ## 2023-01-25 17:45 
 
 - [x] ~~Implement a navigation for the Single Page in order to 

@@ -53,8 +53,8 @@
 						<img src={myStatus.payload.recipe.image} alt={myStatus.payload.recipe.label} />
 					</div>
 					<div class="my-card-content">
-						<p>300 calories</p>
-						<p>low-carb</p>
+						<p>{Math.floor(myStatus.payload.recipe.calories)} calories</p>
+						<p>on {Math.ceil(myStatus.payload.recipe.totalWeight)} grams</p>
 					</div>
 				</div>
 			</div>
