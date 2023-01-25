@@ -89,6 +89,7 @@ export function getSingleRecipe(url: string): Promise<ResData> {
       throw new Error(errMsg);
     })
     .then((data) => {
+      // console.dir(data)
       return {
         state: "success",
         payload: data,

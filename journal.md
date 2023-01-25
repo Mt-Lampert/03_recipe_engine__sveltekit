@@ -7,11 +7,82 @@ date: 2023-01-12
 
 # TODO
 
-- [ ] Implement a navigation for the Single Page in order to 
-      navigate between the recipes.
 
 
 # JOURNAL
+
+## 2023-01-25 17:45 
+
+- [x] ~~Implement a navigation for the Single Page in order to 
+      navigate between the recipes.~~
+
+Yes, I did it and it worked! I solved the problem from yesterday by thinking
+out-of-the-box: The 'Prev' and 'Next' button both needn't be hyperlinks (`<a>`),
+they can also fire an event handler. And this was the event handler that did
+the trick:
+
+```javascript
+function goOne(step: number): void {
+  let newIndex = myIndex + step;
+  // index can't be < 0
+  if (newIndex < 0) return;
+  // index can't be greater than the number of recipes
+  if (newIndex === $recipeInfo.currentRecipes.length) return;
+
+  mySelf = $recipeInfo.currentRecipes[newIndex];
+  myIndex = newIndex;
+  myStatusPromise = getSingleRecipe(mySelf.url);
+}
+```
+
+Since `mySelf`, `myIndex` and `myStatusPromise` are all status variables, they
+all will trigger a re-rendering. Job done!
+
+
+
+## 2023-01-25 08:05
+
+Yesterday evening I faced an interesting problem. (The kind of interesting that
+drives you nuts when it hits you but becomes an interesting challenge
+once the state of madness has passed.) I found out that ...
+
+> __... in SvelteKit it's a bad idea to request the same route with different
+> params.__
+
+Background: To implement a navigation for the Single Page I simply implemented
+it like this:
+
+```xml
+<div class="navigation">
+  <a href={'/' + $recipeInfo.currentRecipes[myIndex - 1].id}><button>Prev</button></a>
+  <a href={'/' + $recipeInfo.currentRecipes[myIndex + 1].id}><button>Next</button></a>
+</div>
+```
+
+This results in the following set of routes (sample):
+
+```bash
+http://localhost:5173/_2ab9d58e90fe18  # current route
+http://localhost:5173/_c4918bb49de5a1  # route to previous item
+http://localhost:5173/_049591058154eb  # route to next item
+```
+
+So the route is the same ('/'), just the parameter (the id) is different. The result: no update!
+
+__[[UPDATE (11:06):]]__ After reading a little reddit, the solution seems to be the
+[invalidate()](https://kit.svelte.dev/docs/modules#$app-navigation-invalidate)
+function. From the official documentation:
+
+> [The `invalidate()` function] causes any load functions belonging to the
+> currently active page to re-run if they depend on the url in question, via
+> fetch or depends. Returns a Promise that resolves when the page is
+> subsequently updated.
+>
+> If the argument is given as a string or URL, it must resolve to the same URL
+> that was passed to fetch or depends (including query parameters). To create a
+> custom identifier, use a string beginning with [a-z]+: (e.g. custom:state) —
+> this is a valid URL.
+
 
 ## 2023-01-24 16:50
 
