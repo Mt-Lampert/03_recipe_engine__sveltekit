@@ -5,6 +5,10 @@ export type GridItem = {
   img: string,
 }
 
+export type PageData = {
+  id: string,
+}
+
 export type ReqInfo = {
   appID: string,
   appKey: string,

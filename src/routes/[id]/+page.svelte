@@ -1,6 +1,5 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	import type { GridItem, ResData } from '$lib/myTypes';
+	import type { GridItem, PageData, ResData } from '$lib/myTypes';
 	import { getSingleRecipe } from '$lib/helpers';
 	import { recipeInfo } from '$lib/recipeStore';
 
